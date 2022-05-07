@@ -26,7 +26,9 @@ final class MoviesSearchFlowCoordinator {
         self.navigationController = navigationController
         self.dependencies = dependencies
     }
-    
+
+  // VC 객체를 생성할때, 화면전환과 같은 이벤트를 처리하기 위한 Actions 객체를 생성하여 전달을 하며 해당 객체는 Coordinator가 가지고 있는다.
+  // 뷰모델 내에서 actions를 체이닝하여 메소드를 호출하면 Coordinator가 이벤트를 수신하여 화면전환과 같은 이벤트를 실행한다.
     func start() {
         // Note: here we keep strong reference with actions, this way this flow do not need to be strong referenced
         let actions = MoviesListViewModelActions(showMovieDetails: showMovieDetails,

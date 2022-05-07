@@ -20,6 +20,7 @@ enum MoviesListViewModelLoading {
     case nextPage
 }
 
+// 뷰모델 인풋 명세
 protocol MoviesListViewModelInput {
     func viewDidLoad()
     func didLoadNextPage()
@@ -30,6 +31,7 @@ protocol MoviesListViewModelInput {
     func didSelectItem(at index: Int)
 }
 
+// 뷰모델 아웃풋 명세
 protocol MoviesListViewModelOutput {
     var items: Observable<[MoviesListItemViewModel]> { get } /// Also we can calculate view model items on demand:  https://github.com/kudoleh/iOS-Clean-Architecture-MVVM/pull/10/files
     var loading: Observable<MoviesListViewModelLoading?> { get }
@@ -44,6 +46,7 @@ protocol MoviesListViewModelOutput {
 
 protocol MoviesListViewModel: MoviesListViewModelInput, MoviesListViewModelOutput {}
 
+// 인풋 & 아웃풋 모델을 채택하는 뷰모델 프로톸콜을 구현한 구현체
 final class DefaultMoviesListViewModel: MoviesListViewModel {
 
     private let searchMoviesUseCase: SearchMoviesUseCase

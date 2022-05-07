@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 비즈니스 모델로서 고차원으로 추상화
 struct Movie: Equatable, Identifiable {
     typealias Identifier = String
     enum Genre {
